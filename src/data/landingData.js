@@ -20,9 +20,9 @@ export const pilaresCriacao = [
 ];
 
 export const bibliotecaPrompts = [
-  { titulo: "💰 Nichos Ocultos de Lucro", desc: "Comandos matemáticos para escanear mercados pouco explorados e faturar antes da saturação." },
-  { titulo: "🖋️ Copywriting Direto", desc: "Instruções para emular os maiores copywriters do mundo escrevendo cartas de vendas agressivas." },
-  { titulo: "📱 Máquina Viral de Conteúdo", desc: "Roteiros magnéticos geradores de retenção para Reels, TikTok, YouTube Shorts e Threads." }
+  { titulo: " Nichos Ocultos de Lucro", desc: "Comandos matemáticos para escanear mercados pouco explorados e faturar antes da saturação." },
+  { titulo: " Copywriting Direto", desc: "Instruções para emular os maiores copywriters do mundo escrevendo cartas de vendas agressivas." },
+  { titulo: " Máquina Viral de Conteúdo", desc: "Roteiros magnéticos geradores de retenção para Reels, TikTok, YouTube Shorts e Threads." }
 ];
 
 export const faqs = [

@@ -203,22 +203,103 @@ body {
 .custom-table th { padding: 18px; border-bottom: 1px solid var(--border-color); color: var(--text-main); font-weight: 700; }
 .custom-table td { padding: 18px; border-bottom: 1px solid rgba(255,255,255,0.02); color: var(--text-muted); }
 
-/* Estrutura dos Planos de Venda */
+/* ==========================================================================
+   TABELA COMPARATIVA MATRIZ PREMIUM (ALINHAMENTO E ESPAÇAMENTO REFEITOS)
+   ========================================================================== */
+
+.pricing-table-wrapper {
+  background-color: #06090F;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow-x: auto;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.pricing-table th, 
+.pricing-table td {
+  padding: 20px 24px;
+  vertical-align: middle;
+}
+
+/* Alinhamento dos cabeçalhos */
+.pricing-table th.text-left,
+.pricing-table td.text-left {
+  text-align: left;
+}
+
+.pricing-table th.text-center,
+.pricing-table td.text-center {
+  text-align: center;
+}
+
+/* Força a centralização perfeita dos ícones e badges */
+.pricing-table td:not(.text-left) {
+  text-align: center;
+}
+
+.pricing-table td:not(.text-left) > svg,
+.pricing-table td:not(.text-left) > span {
+  display: inline-block;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
+/* Zebrado escuro sutil */
+.pricing-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.pricing-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Estilização dos ícones */
+.status-icon-check {
+  color: #10B981;
+}
+
+.status-icon-check-max {
+  color: var(--neon-green);
+  filter: drop-shadow(0 0 6px rgba(0, 245, 155, 0.5));
+}
+
+.status-icon-x {
+  color: #EF4444;
+  opacity: 0.3;
+}
+
+.badge-essentials {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #9CA3AF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* SEGUNDA PARTE: Separação mais nítida dos blocos de compra */
+.pricing-grid-container {
+  margin-top: 80px !important; /* Aumentado significativamente para dar respiro ao design */
+}
+
 .plan-wrapper {
-  border-radius: 24px;
-  padding: 40px 32px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 48px 32px !important; /* Mais preenchimento interno para elegância */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 260px;
 }
-.plan-wrapper.featured {
-  border: 2px solid var(--neon-green);
-  box-shadow: 0 0 50px rgba(0, 245, 155, 0.1);
-  position: relative;
-}
-
 /* FAQ Accordion Dinâmico */
 .faq-container { max-width: 768px; margin: 0 auto; padding: 64px 24px; }
 .accordion-item { border-bottom: 1px solid var(--border-color); }
@@ -354,4 +435,49 @@ body {
 
 .contact-footer-link:hover {
   color: var(--neon-green) !important;
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO DO ARSENAL EM BLOCOS (BIBLIOTECA)
+   ========================================================================== */
+
+/* Card individual do arsenal */
+.arsenal-card {
+  background: #06090F; /* Fundo escuro premium combinado com a LP */
+  border: 1px solid var(--border-color); /* Borda sutil combinando com o resto da página */
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito hover tecnológico ao passar o mouse */
+.arsenal-card:hover {
+  border-color: rgba(0, 245, 155, 0.3); /* Destaque sutil com o verde neon */
+  transform: translateY(-4px); /* Elevação suave */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Container do ícone vetorial */
+.arsenal-icon-wrapper {
+  background: rgba(0, 245, 155, 0.04); /* Fundo com transparência sutil */
+  border: 1px solid rgba(0, 245, 155, 0.15);
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Ajuste nos parágrafos para melhor leitura */
+.arsenal-card p {
+  margin: 0;
+  color: #9CA3AF; /* Tom de cinza legível e elegante */
+  font-size: 13.5px;
+  line-height: 1.6;
 }

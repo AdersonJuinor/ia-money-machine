@@ -56,7 +56,7 @@ export default function App() {
             Cada dia de hesitação é um dia em que você trabalha mais horas do que deveria para gerar menos lucro do que poderia. Deixe os robôs assumirem o trabalho pesado hoje.
           </p>
           <a href="#oferta" className="cta-epic text-xl py-5 px-12 text-decoration-none">
-            QUERO ENTRAR PARA A ERA DA VELOCIDADE
+            QUERO ENTRAR PARA A ERA DA INTELIGÊNCIA ARTIFICIAL
           </a>
           
           {/* Estrutura Limpa com as novas classes organizadas */}
