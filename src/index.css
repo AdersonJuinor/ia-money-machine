@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* DESIGN SYSTEM LUXURY CYBERPUNK - VERSÃO COMPONENTIZADA */
+
+:root {
+  --bg-main: #06090F;
+  --bg-card: #0D131F;
+  --bg-card-hover: #141D2F;
+  --text-main: #F3F4F6;
+  --text-muted: #9CA3AF;
+  --neon-green: #00F59B;
+  --neon-purple: #7000FF;
+  --border-color: rgba(255, 255, 255, 0.06);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Utilitários Globais de Layout */
+.lp-wrapper { 
+  width: 100%; 
+  min-height: 100vh; 
+}
+
+.section-wrapper { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 80px 24px; 
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #FFFFFF 30%, #9CA3AF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-neon { 
+  color: var(--neon-green); 
+  text-shadow: 0 0 15px rgba(0, 245, 155, 0.2); 
+}
+
+/* Efeito de Iluminação de Fundo (Glow) */
+.glow-effect {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(112,0,255,0.08) 0%, rgba(0,0,0,0) 70%);
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Elementos do Hero */
+.hero-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 24px 64px 24px;
+  text-align: center;
+  z-index: 10;
+}
+
+.badge-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(112, 0, 255, 0.1);
+  border: 1px solid rgba(112, 0, 255, 0.3);
+  color: #B980FF;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+.main-headline {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+@media (min-width: 768px) { .main-headline { font-size: 4.2rem; } }
+
+.main-subheadline {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 768px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+@media (min-width: 768px) { .main-subheadline { font-size: 1.35rem; } }
+
+/* Botões e CTAs Mecânicos de Conversão */
+.cta-epic {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(90deg, var(--neon-green) 0%, #00D184 100%);
+  color: #03060B;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 20px 40px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 0 40px rgba(0, 245, 155, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: none;
+}
+.cta-epic:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 50px rgba(0, 245, 155, 0.5);
+}
+
+.btn-secondary {
+  width: 100%;
+  background-color: #1F2937;
+  color: white;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-secondary:hover { background-color: #374151; }
+
+.btn-featured {
+  width: 100%;
+  background: linear-gradient(90deg, var(--neon-green) 0%, #00D184 100%);
+  color: #03060B;
+  font-weight: bold;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(0, 245, 155, 0.2);
+}
+.btn-featured:hover { background: #34D399; }
+
+/* Grids Flexíveis e Responsivos */
+.grid-2 { display: grid; gap: 24px; grid-template-columns: 1fr; }
+.grid-3 { display: grid; gap: 24px; grid-template-columns: 1fr; }
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Blocos e Cards Cyber */
+.card-cyber {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+.card-cyber:hover {
+  border-color: rgba(0, 245, 155, 0.2);
+  background-color: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+/* Caixa do Terminal (Prompts) */
+.code-terminal {
+  background-color: #03060B;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  color: var(--neon-green);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* Filtro Qualificador de Leads */
+.qualifier-box { padding: 32px; border-radius: 16px; border-left: 4px solid; }
+.qualifier-box.yes { background: rgba(0, 245, 155, 0.02); border-left-color: var(--neon-green); border: 1px solid rgba(0, 245, 155, 0.06); }
+.qualifier-box.no { background: rgba(248, 113, 113, 0.02); border-left-color: #F87171; border: 1px solid rgba(248, 113, 113, 0.06); }
+
+/* Tabela de Custo de Oportunidade */
+.table-container {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+}
+.custom-table table { width: 100%; border-collapse: collapse; text-align: left; }
+.custom-table th { padding: 18px; border-bottom: 1px solid var(--border-color); color: var(--text-main); font-weight: 700; }
+.custom-table td { padding: 18px; border-bottom: 1px solid rgba(255,255,255,0.02); color: var(--text-muted); }
+
+/* Estrutura dos Planos de Venda */
+.plan-wrapper {
+  border-radius: 24px;
+  padding: 40px 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.plan-wrapper.featured {
+  border: 2px solid var(--neon-green);
+  box-shadow: 0 0 50px rgba(0, 245, 155, 0.1);
+  position: relative;
+}
+
+/* FAQ Accordion Dinâmico */
+.faq-container { max-width: 768px; margin: 0 auto; padding: 64px 24px; }
+.accordion-item { border-bottom: 1px solid var(--border-color); }
+.accordion-btn {
+  width: 100%; padding: 24px 0; background: none; border: none; text-align: left;
+  color: var(--text-main); font-size: 1.1rem; font-weight: 600; display: flex;
+  justify-content: space-between; align-items: center; cursor: pointer;
+}
+.accordion-panel { padding-bottom: 24px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+/* ==========================================================================
+   RODAPÉ PREMIUM E LINKS LEGAIS - CORREÇÃO DE espaçamento e cores
+   ========================================================================== */
+
+.footer-cta {
+  background: linear-gradient(to top, #0D131F, #06090F);
+  border-top: 1px solid var(--border-color);
+  padding: 96px 24px 48px 24px;
+  text-align: center;
+}
+
+/* Container dos links inferiores */
+.footer-links-container {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Quando estiver em telas maiores (Desktop), organiza em linha */
+@media (min-width: 768px) {
+  .footer-links-container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
+
+/* Bloco que agrupa apenas os links clicáveis */
+.footer-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .footer-nav-links {
+    gap: 24px;
+  }
+}
+
+/* Estilização cirúrgica dos links (Matando o roxo nativo) */
+.footer-link-item {
+  color: var(--text-muted) !important;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+/* Efeito Hover elegante */
+.footer-link-item:hover {
+  color: var(--neon-green) !important;
+}
+
+.footer-copyright {
+  color: #4B5563;
+  font-size: 13px;
+}
+
+/* Auxiliares de Cores e Animações */
+.text-red-400 { color: #F87171; }
+.font-black { font-weight: 900; }
+.tracking-widest { letter-spacing: 0.1em; }
+.anim-fade { animation: fastFade 0.25s ease-out forwards; }
+
+@keyframes fastFade { 
+  from { opacity: 0; transform: translateY(-4px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO DO FORMULÁRIO DE CONTATO (ESTILO DARK CYBER)
+   ========================================================================== */
+
+.contact-form-box {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  box-sizing: border-box; /* Garante que o input não passe da borda */
+  background-color: #03060B !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--text-main) !important;
+  font-family: inherit;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--neon-green) !important;
+}
+
+/* Espaçamento para o link do Instagram no rodapé do contato */
+.contact-footer-link {
+  color: var(--text-muted) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.contact-footer-link:hover {
+  color: var(--neon-green) !important;
+}
