@@ -12,7 +12,7 @@ export default function Planos() {
           <div>
             <h3 className="text-xl font-bold mb-1">📦 Básico</h3>
             <p className="text-xs text-gray-400 mb-6">O básico operacional para tarefas simples cotidianas.</p>
-            <div className="text-3xl font-extrabold mb-6 text-white">12x R$ 9,70 <span className="text-xs text-gray-500 font-normal">ou R$97 à vista</span></div>
+            <div className="text-3xl font-extrabold mb-6 text-white"><span className="text-xs text-gray-500 font-normal">R$19,99 à vista</span></div>
           </div>
           <button className="btn-secondary">Garantir Plano Básico</button>
         </div>
@@ -22,7 +22,7 @@ export default function Planos() {
           <div>
             <h3 className="text-2xl font-black mb-1 text-white">👑 PRO MAX</h3>
             <p className="text-xs text-gray-300 mb-6">Acesso total à biblioteca vitalícia (+500 prompts), suporte VIP e atualizações semanais.</p>
-            <div className="text-4xl font-black mb-6 text-neon">12x R$ 29,70 <span className="text-xs text-gray-400 font-normal">ou R$297 à vista</span></div>
+            <div className="text-4xl font-black mb-6 text-neon"><span className="text-xs text-gray-400 font-normal">R$59,99 à vista</span></div>
           </div>
           <button className="btn-featured">QUERO O ACESSO PRO MAX</button>
         </div>
@@ -31,7 +31,7 @@ export default function Planos() {
           <div>
             <h3 className="text-xl font-bold mb-1">🚀 PRO</h3>
             <p className="text-xs text-gray-400 mb-6">Para profissionais que buscam automações e marketing padrão.</p>
-            <div className="text-3xl font-extrabold mb-6 text-white">12x R$ 19,70 <span className="text-xs text-gray-500 font-normal">ou R$197 à vista</span></div>
+            <div className="text-3xl font-extrabold mb-6 text-white"><span className="text-xs text-gray-500 font-normal">R$39,99 à vista</span></div>
           </div>
           <button className="btn-secondary">Garantir Plano PRO</button>
         </div>
