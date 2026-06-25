@@ -12,7 +12,7 @@ export default function Contato() {
     e.preventDefault();
     
     // CONFIGURAÇÃO: Insira seu número de WhatsApp com DDD (apenas números, inclua o 55 do Brasil)
-    const numeroWhats = "554888417748"; 
+    const numeroWhats = "5548984830006"; 
     
     // Quebras de linha e organização para o texto do WhatsApp
     const textoFormato = `*Novo Contato - IA Money Machine*\n\n` +
