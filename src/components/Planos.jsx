@@ -29,6 +29,7 @@ export default function Planos() {
 
   return (
     <section id="oferta" className="section-wrapper">
+      {/* SEÇÃO: MATRIZ COMPARATIVA (Mantendo a anterior centralizada e sem emojis) */}
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-black">Adquira Sua Vantagem Injusta Hoje</h2>
         <p className="text-gray-400 mt-2">Escolha o seu arsenal estratégico de prompts avançados de inteligência artificial.</p>
@@ -57,32 +58,58 @@ export default function Planos() {
         </table>
       </div>
 
-      {/* Grid de Preços com o novo espaçamento de 80px */}
+      {/* SEGUNDA PARTE: Grid de Preços em Blocos Premium (Ajustada conforme imagem) */}
       <div className="grid-3 pricing-grid-container">
-        <div className="plan-wrapper text-center">
-          <div>
-            <h3 className="text-xl font-bold mb-2 text-gray-400">Básico</h3>
-            <div className="text-3xl font-extrabold mb-6 text-white">R$ 19,99 <span className="text-xs text-gray-500 font-normal">à vista</span></div>
+        
+        {/* PLANO BÁSICO */}
+        <div className="plan-wrapper text-left">
+          <div className="plan-header-block">
+            <h3 className="text-xl font-bold text-white mb-4">Básico</h3>
+            <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+              O básico operacional para tarefas simples cotidianas. (100 prompts + 40 essenciais).
+            </p>
           </div>
-          <button className="btn-secondary">Garantir Plano Básico</button>
+          <div className="plan-price-block mb-6">
+            <div className="text-xl font-black text-white"><span className="text-xs text-gray-400 font-normal">R$ 19,99 à vista</span>
+            </div>
+          </div>
+          <button className="btn-secondary w-full">Garantir Plano Básico</button>
         </div>
 
-        <div className="plan-wrapper featured text-center">
-          <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-neon-green text-black text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider">RECOMENDADO</span>
-          <div>
-            <h3 className="text-2xl font-black mb-2 text-white">PRO MAX</h3>
-            <div className="text-4xl font-black mb-6 text-neon">R$ 59,99 <span className="text-xs text-gray-400 font-normal">à vista</span></div>
+        {/* PLANO PRO MAX (DESTAQUE) */}
+        <div className="plan-wrapper featured text-left">
+          <span className="absolute -top-3.5 left-6 bg-neon-green text-black text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider">
+            RECOMENDADO
+          </span>
+          <div className="plan-header-block">
+            <h3 className="text-2xl font-black text-white mb-4">PRO MAX</h3>
+            <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+              Acesso total à biblioteca vitalícia (+300 prompts), suporte VIP e atualizações semanais (Grupo exclusivo).
+            </p>
           </div>
-          <button className="btn-featured">QUERO O ACESSO PRO MAX</button>
+          <div className="plan-price-block mb-6">
+            <div className="text-xl font-black text-neon"><span className="text-xs text-gray-300 font-normal">R$ 59,98 à vista</span>
+            </div>
+
+          </div>
+          <button className="btn-featured w-full">QUERO O ACESSO PRO MAX</button>
         </div>
 
-        <div className="plan-wrapper text-center">
-          <div>
-            <h3 className="text-xl font-bold mb-2 text-gray-300">PRO</h3>
-            <div className="text-3xl font-extrabold mb-6 text-white">R$ 39,99 <span className="text-xs text-gray-500 font-normal">à vista</span></div>
+        {/* PLANO PRO */}
+        <div className="plan-wrapper text-left">
+          <div className="plan-header-block">
+            <h3 className="text-xl font-bold text-white mb-4">PRO</h3>
+            <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+              Para profissionais que buscam automações e marketing padrão. (Basico + 200 prompts).
+            </p>
           </div>
-          <button className="btn-secondary">Garantir Plano PRO</button>
+          <div className="plan-price-block mb-6">
+            <div className="text-xl font-black text-white"><span className="text-xs text-gray-400 font-normal">R$ 39,99 à vista</span>
+            </div>
+          </div>
+          <button className="btn-secondary w-full">Garantir Plano PRO</button>
         </div>
+
       </div>
     </section>
   );
