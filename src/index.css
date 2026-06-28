@@ -298,6 +298,33 @@ body {
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
+/* ==========================================================================
+   URGÊNCIA E CONTAGEM REGRESSIVA NOS BOTÕES
+   ========================================================================== */
+/* Container interno do botão que substitui o texto */
+.btn-countdown-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  font-size: 13.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Força os botões a manterem uma altura fixa elegante */
+.btn-secondary, .btn-featured {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
 /* FAQ Accordion Dinâmico */
 .faq-container { max-width: 768px; margin: 0 auto; padding: 64px 24px; }
 .accordion-item { border-bottom: 1px solid var(--border-color); }

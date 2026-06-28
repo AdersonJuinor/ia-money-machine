@@ -83,7 +83,7 @@ export default function Contato() {
         <div className="mt-12 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between gap-6 text-sm text-gray-400">
           <div className="flex items-center gap-2">
             <Mail size={16} className="text-neon" /> 
-            <span>suporte@iamoneymachine.com</span>
+            <span>iamoneymachine352@gmail.com</span>
           </div>
           <a href="https://instagram.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 contact-footer-link">
             <Globe size={16} className="text-neon" /> 

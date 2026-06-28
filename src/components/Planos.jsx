@@ -1,7 +1,61 @@
-import React from 'react';
-import { Check, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Check, X, Clock } from 'lucide-react';
 
 export default function Planos() {
+  // Define a data alvo do seu lançamento: 27 de Julho de 2026 às 12:00:00
+  const dataLancamento = new Date('2026-07-27T12:00:00').getTime();
+
+  const [tempoRestante, setTempoRestante] = useState({
+    dias: 0,
+    horas: 0,
+    minutos: 0,
+    segundos: 0,
+    expirado: false
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const agora = new Date().getTime();
+      const diferenca = dataLancamento - agora;
+
+      if (diferenca <= 0) {
+        setTempoRestante({ dias: 0, horas: 0, minutos: 0, segundos: 0, expirado: true });
+        clearInterval(timer);
+      } else {
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        setTempoRestante({ dias, horas, minutos, segundos, expirado: false });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [dataLancamento]);
+
+  const formatarNum = (num) => String(num).padStart(2, '0');
+
+  // Elemento que exibe a contagem regressiva dinamicamente com base nos dias restantes
+  const renderContagemBotao = () => {
+    if (tempoRestante.expirado) {
+      return (
+        <div className="btn-countdown-content">
+          <span>CARRINHO ABERTO!</span>
+        </div>
+      );
+    }
+
+    return (
+      <div className="btn-countdown-content">
+        <Clock size={16} className="animate-pulse text-current" />
+        <span>
+          LANÇAMENTO EM: {tempoRestante.dias}d {formatarNum(tempoRestante.horas)}h {formatarNum(tempoRestante.minutos)}m {formatarNum(tempoRestante.segundos)}s
+        </span>
+      </div>
+    );
+  };
+
   const recursos = [
     { nome: "Nichos Ocultos", basico: "check", pro: "check", max: "check" },
     { nome: "Ofertas Irrecusáveis", basico: "check", pro: "check", max: "check" },
@@ -12,24 +66,19 @@ export default function Planos() {
     { nome: "Anúncios de Alta Escala", basico: "x", pro: "check", max: "check" },
     { nome: "Funis de Vendas Inteligentes", basico: "x", pro: "check", max: "check" },
     { nome: "Automações de Processos", basico: "essentials", pro: "check", max: "check" },
-    { nome: "Sistemas de SEO Avançado", basico: "essentials", pro: "check", max: "check" },
+    { nome: "Sistemas de SEO Avançado", basico: "essentials", pro: "x", max: "check" },
     { nome: "Arquitetura para SaaS", basico: "x", pro: "x", max: "check" },
     { nome: "Estratégias de Escala Extrema", basico: "x", pro: "x", max: "check" },
   ];
 
   const renderStatus = (status, isMax = false) => {
-    if (status === "check") {
-      return <Check size={18} className={isMax ? "status-icon-check-max" : "status-icon-check"} />;
-    }
-    if (status === "x") {
-      return <X size={18} className="status-icon-x" />;
-    }
+    if (status === "check") return <Check size={18} className={isMax ? "status-icon-check-max" : "status-icon-check"} />;
+    if (status === "x") return <X size={18} className="status-icon-x" />;
     return <span className="badge-essentials">Essentials</span>;
   };
 
   return (
     <section id="oferta" className="section-wrapper">
-      {/* SEÇÃO: MATRIZ COMPARATIVA (Mantendo a anterior centralizada e sem emojis) */}
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-black">Adquira Sua Vantagem Injusta Hoje</h2>
         <p className="text-gray-400 mt-2">Escolha o seu arsenal estratégico de prompts avançados de inteligência artificial.</p>
@@ -58,7 +107,7 @@ export default function Planos() {
         </table>
       </div>
 
-      {/* SEGUNDA PARTE: Grid de Preços em Blocos Premium (Ajustada conforme imagem) */}
+      {/* BLOCKS DE PREÇOS COM CONTAGEM REAL */}
       <div className="grid-3 pricing-grid-container">
         
         {/* PLANO BÁSICO */}
@@ -70,13 +119,16 @@ export default function Planos() {
             </p>
           </div>
           <div className="plan-price-block mb-6">
-            <div className="text-xl font-black text-white"><span className="text-xs text-gray-400 font-normal">R$ 19,99 à vista</span>
+            <div className="text-xl font-black text-white">
+              R$ 19,99 <span className="text-xs text-gray-400 font-normal">à vista</span>
             </div>
           </div>
-          <button className="btn-secondary w-full">Garantir Plano Básico</button>
+          <button className="btn-secondary w-full" disabled={!tempoRestante.expirado}>
+            {renderContagemBotao()}
+          </button>
         </div>
 
-        {/* PLANO PRO MAX (DESTAQUE) */}
+        {/* PLANO PRO MAX */}
         <div className="plan-wrapper featured text-left">
           <span className="absolute -top-3.5 left-6 bg-neon-green text-black text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider">
             RECOMENDADO
@@ -88,11 +140,13 @@ export default function Planos() {
             </p>
           </div>
           <div className="plan-price-block mb-6">
-            <div className="text-xl font-black text-neon"><span className="text-xs text-gray-300 font-normal">R$ 59,98 à vista</span>
+            <div className="text-xl font-black text-neon">
+              R$ 59,98 <span className="text-xs text-gray-300 font-normal">à vista</span>
             </div>
-
           </div>
-          <button className="btn-featured w-full">QUERO O ACESSO PRO MAX</button>
+          <button className="btn-featured w-full" disabled={!tempoRestante.expirado}>
+            {renderContagemBotao()}
+          </button>
         </div>
 
         {/* PLANO PRO */}
@@ -104,10 +158,13 @@ export default function Planos() {
             </p>
           </div>
           <div className="plan-price-block mb-6">
-            <div className="text-xl font-black text-white"><span className="text-xs text-gray-400 font-normal">R$ 39,99 à vista</span>
+            <div className="text-xl font-black text-white">
+              R$ 39,99 <span className="text-xs text-gray-400 font-normal">à vista</span>
             </div>
           </div>
-          <button className="btn-secondary w-full">Garantir Plano PRO</button>
+          <button className="btn-secondary w-full" disabled={!tempoRestante.expirado}>
+            {renderContagemBotao()}
+          </button>
         </div>
 
       </div>
